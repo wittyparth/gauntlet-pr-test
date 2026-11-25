@@ -1,0 +1,23 @@
+name: gauntlet
+on:
+  pull_request:
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  gauntlet:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v7
+      - uses: wittyparth/gauntlet/integrations/github-action@ci/action-cli-spec
+        with:
+          api-url: http://localhost:8088
+          api-key: ${{ secrets.GAUNTLET_API_KEY }}
+          suite: ecommerce_tiny
+          agent-version: agv_01M85WHBSG901TJZ57D5ZR7Z1B
+          repetitions: 1
+          budget-usd: 0.03
+          timeout-min: 10
+          cli-spec: >-
+            gauntlet-core @ git+https://github.com/wittyparth/gauntlet@ci/action-cli-spec#subdirectory=packages/core
+            gauntlet-cli @ git+https://github.com/wittyparth/gauntlet@ci/action-cli-spec#subdirectory=packages/cli

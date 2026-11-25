@@ -7,6 +7,8 @@ permissions:
 jobs:
   gauntlet:
     runs-on: self-hosted
+    env:
+      AGENT_TOOLSDIRECTORY: /Users/parthu/gauntlet-runner/_tool
     steps:
       - uses: actions/checkout@v7
       - uses: wittyparth/gauntlet/integrations/github-action@ci/action-cli-spec

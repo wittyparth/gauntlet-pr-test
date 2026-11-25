@@ -16,7 +16,7 @@ jobs:
           uv venv --python 3.12 "$RUNNER_TEMP/py" -q
           uv pip install --python "$RUNNER_TEMP/py/bin/python" pip -q
           echo "$RUNNER_TEMP/py/bin" >> "$GITHUB_PATH"
-      - uses: wittyparth/gauntlet/integrations/github-action@ci/action-cli-spec
+      - uses: wittyparth/gauntlet/integrations/github-action@main
         with:
           api-url: http://localhost:8088
           api-key: ${{ secrets.GAUNTLET_API_KEY }}
@@ -27,5 +27,5 @@ jobs:
           timeout-min: 10
           setup-python: "false"
           cli-spec: >-
-            gauntlet-core @ git+https://github.com/wittyparth/gauntlet@ci/action-cli-spec#subdirectory=packages/core
-            gauntlet-cli @ git+https://github.com/wittyparth/gauntlet@ci/action-cli-spec#subdirectory=packages/cli
+            gauntlet-core @ git+https://github.com/wittyparth/gauntlet@main#subdirectory=packages/core
+            gauntlet-cli @ git+https://github.com/wittyparth/gauntlet@main#subdirectory=packages/cli

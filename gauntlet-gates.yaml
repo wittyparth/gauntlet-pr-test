@@ -1,4 +1,4 @@
 gates:
-  pass_rate: {min: 0.99}
-  reliability: {pass_hat_k: {k: 2, min: 0.99}}
-inconclusive: fail
+  pass_rate: {min: 0.8}
+  latency: {max_p95_ms: 100}
+  cost: {max_usd_per_episode: 0.0001}

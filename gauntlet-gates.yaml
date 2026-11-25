@@ -1,0 +1,4 @@
+gates:
+  pass_rate: {min: 0.8}
+  latency: {max_p95_ms: 100}
+  cost: {max_usd_per_episode: 0.0001}
